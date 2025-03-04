@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY, YOU ABSOLUTE LEGEND</title>
+    <style>
+        body {
+            background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHdyOWNhbjdvOXo2Z3o5NjdiNnJoMHBqc3h6aDYyNjc3aTk5aHE2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4yNCYe8sboXDGFHH28/giphy.gif');
+            color: yellow;
+            font-family: Comic Sans MS, cursive;
+            text-align: center;
+        }
+        .button {
+            padding: 15px;
+            background: red;
+            color: white;
+            border: 5px dashed yellow;
+            font-size: 20px;
+            cursor: pointer;
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translate(2px, 2px); }
+            50% { transform: translate(-2px, -2px); }
+            100% { transform: translate(2px, 2px); }
+        }
+        .hidden { display: none; }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .game-ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm9kOW55MmtxN2IyZHNkMnNlYndpY2x5Z2R6bDQ1dmh5YWgyMG4zdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DvjwewjqkO7rVDCfk7/giphy.gif') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .bouncing-ball {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-100px); }
+            100% { transform: translateY(0); }
+        }
+        .hidden-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gif-container {
+            max-width: 150px; /* Adjust the max-width as needed */
+            margin: 10px;
+        }
+        .gif-container img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉🎂 HAPPY BIRTHDAY, JINXUAN 🎂🎉</h1>
+    <p id="message">Click the button for your birthday surprise!</p>
+    <button class="button" onclick="chaos()">UNLEASH THE PARTY</button>
+    <button class="button" onclick="spawnBall()">SPAWN BALL</button>
+    <button class="button" onclick="startGame()">START GAME</button>
+    <button class="button" onclick="playMusic()">PLAY MUSIC</button>
+    <div id="hiddenContent" class="hidden hidden-content">
+        <h2>💥 IT'S YOUR BIRTHDAY, LET'S GOOOO 💥</h2>
+        <p>🎈 You're another year closer to becoming a cryptid! 🎈</p>
+        <div class="gif-container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWxsMTZlbWUxNzlmNDRkMzYxdGpyd29kODdybW5yZms4OXA1d2VrNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DA8op0omzFuwe14iyj/giphy.gif" alt="Skibidi Toilet GIF">
+        </div>
+        <div class="gif-container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGlpOGtlcnZvNWZiZzh1MncwdGp6cXZzNDQwNzVuYmpvMmxzOWVkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TpsuCxwsNH8gatbpR5/giphy.gif" alt="Party Cat GIF">
+        </div>
+        <div class="gif-container">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXJ5Ym5weXBmZWNxdm9nZmFwNjdkM2Jka2p6N205YzcxZ2RodzJ2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0rmBHc4zWSJD2k7qao/giphy.gif" alt="Astarion GIF">
+        </div>
+    </div>
+    <div id="gameContainer" class="game-container hidden"></div>
+    <audio id="backgroundMusic" loop>
+        <source src="./sigma_boy.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <p id="score" class="hidden">Score: 0</p>
+    <script>
+        function chaos() {
+            document.getElementById('message').innerText = "HAHAHAHA YOU THOUGHT IT WAS A NORMAL BUTTON!";
+            document.getElementById('hiddenContent').classList.remove('hidden');
+            let audio = new Audio('https://www.myinstants.com/media/sounds/vine-boom.mp3');
+            audio.play();
+            alert("BZZT ERROR 404: CAKE NOT FOUND. Proceeding with clown noises instead.");
+            document.querySelector('.button').addEventListener('click', () => {
+                new Audio('https://www.myinstants.com/media/sounds/clown-horn.mp3').play();
+            });
+        }
+        function spawnBall() {
+            let ball = document.createElement("div");
+            ball.classList.add("bouncing-ball");
+            ball.style.left = Math.random() * window.innerWidth + "px";
+            ball.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(ball);
+            ball.addEventListener("click", () => {
+                ball.remove();
+                let popSound = new Audio('https://www.myinstants.com/media/sounds/vine-boom.mp3');
+                popSound.play();
+            });
+        }
+        function startGame() {
+            document.getElementById('gameContainer').classList.remove('hidden');
+            document.getElementById('score').classList.remove('hidden');
+            let score = 0;
+            const gameContainer = document.getElementById('gameContainer');
+            const scoreDisplay = document.getElementById('score');
+
+            function createGameBall() {
+                let ball = document.createElement("div");
+                ball.classList.add("game-ball");
+                ball.style.left = Math.random() * (gameContainer.clientWidth - 50) + "px";
+                ball.style.top = Math.random() * (gameContainer.clientHeight - 50) + "px";
+                gameContainer.appendChild(ball);
+                ball.addEventListener("click", () => {
+                    ball.remove();
+                    score++;
+                    scoreDisplay.innerText = "Score: " + score;
+                    createGameBall();
+                });
+            }
+
+            createGameBall();
+        }
+        function playMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
